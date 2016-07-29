@@ -1,3 +1,4 @@
+package java_20160728;
 import java.util.Scanner;
 
 public class Study01 {
