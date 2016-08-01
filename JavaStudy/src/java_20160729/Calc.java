@@ -55,7 +55,12 @@ public class Calc {
 		// º¯¼ö´Â? firstNumber, secondNumber, resultSum, resultSub, resultMul, resultDiv
 		// 
 		
+		int abc = Integer.MAX_VALUE;
+		abc += 1;
+		System.out.println(abc);
 		
+		byte num = (byte)300;
+		System.out.println(num);
 	}
 
 }
