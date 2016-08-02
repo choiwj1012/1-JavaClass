@@ -22,7 +22,7 @@ public class Homework_04_fixed {
 		String[] titles = new String[MAX_LIST_COUNT];   //글제목		
 		String[] names = new String[MAX_LIST_COUNT];    //작성자
 		String[] contents = new String[MAX_LIST_COUNT]; //글내용
-		int[] num = new int[MAX_LIST_COUNT]; 			//글 번호
+		int[] num = new int[MAX_LIST_COUNT]; 			//글번호
 		int[] count = new int[MAX_LIST_COUNT]; 			//조회수
 		int currentPosition = 0; 	// 현재 글갯수를 의미
 		int selectedMenu = 4; 		// 초기에 글목록보기 기능을 먼저 보여주기 위해 4로 지정됨
@@ -37,7 +37,8 @@ public class Homework_04_fixed {
 			if(selectedMenu==4){
 				
 				if(currentPosition == 0){ // 만약 등록된 글이 없다면
-				
+					
+					System.out.println("글 번호\t글 제목\t작성자\t조회수");
 					System.out.println("등록한 글이 없습니다.");
 				
 				}else if(currentPosition>0){ // 등록된 글이 1개 이상 존재한다면
