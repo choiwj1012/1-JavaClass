@@ -59,13 +59,15 @@ public class Homework_04_fixed {
 				System.out.println("글 번호 "+(currentPosition+1)+"의 글을 작성합니다.");
 				
 				System.out.print("작성자 : ");
-				String currentName = keyboard.next();
+				keyboard.nextLine();
+				String currentName = keyboard.nextLine();
 
 				System.out.print("글 제목 : ");
-				String currentTitle=keyboard.next();
+				String currentTitle=keyboard.nextLine();
 				
 				System.out.print("글 내용 : ");
-				String currentContent=keyboard.next();
+				String currentContent=keyboard.nextLine();
+				
 
 				names[currentPosition] = currentName;       // 위에서 입력받은 작성자 데이터 입력
 				titles[currentPosition] = currentTitle;     // 위에서 입력받은 글제목 데이터 입력
@@ -85,10 +87,10 @@ public class Homework_04_fixed {
 				if(chNum>0 && chNum<=currentPosition) {
 						
 					++count[chNum-1]; //조회수 ++
-					System.out.println("글 번호\t글 제목\t작성자\t조회수"); 
+					System.out.println("글 번호\t글 제목\t작성자\t글내용\t조회수"); 
 					
 					//찾으면 해당 글 번호의 조회할 정보(글 제목, 글 내용, 작성자)					
-					System.out.println(num[chNum-1] + "\t" + titles[chNum-1] + "\t" + names[chNum-1] + "\t" + count[chNum-1]);
+					System.out.println(num[chNum-1] + "\t" + titles[chNum-1] + "\t" + names[chNum-1] + "\t" + contents[chNum-1] + "\t" + count[chNum-1]);
 					
 				} else {
 					//글 번호가 존재하지 않을 때 경고 메세지 출력
@@ -112,17 +114,20 @@ public class Homework_04_fixed {
 						if(chgMenu.equals("1")) {
 							
 							System.out.println("수정할 글 제목을 입력하세요.");
-							titles[chNum-1]=keyboard.next();
+							keyboard.nextLine();
+							titles[chNum-1]=keyboard.nextLine();
 							
 						} else if(chgMenu.equals("2")) {
 							
 							System.out.println("수정할 글 내용을 입력하세요.");
-							contents[chNum-1]=keyboard.next();
+							keyboard.nextLine();
+							contents[chNum-1]=keyboard.nextLine();
 							
 						} else if(chgMenu.equals("3")) {
 							
 							System.out.println("수정할 작성자를 입력하세요.");
-							names[chNum-1]=keyboard.next();
+							keyboard.nextLine();
+							names[chNum-1]=keyboard.nextLine();
 							
 						} else if(chgMenu.equals("4")) {
 							
