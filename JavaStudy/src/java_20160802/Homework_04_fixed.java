@@ -97,55 +97,83 @@ public class Homework_04_fixed {
 				
 			} else if(selectedMenu == 3) {
 				
-				System.out.println("수정하고자 하는 글 번호를 입력하세요."); //수정하고자 하는 글 번호 입력
-				int chNum=keyboard.nextInt();
+				System.out.println("수정하고자 하는 글 번호를 입력하세요.");
+				int chNum=keyboard.nextInt(); // 수정대상 글 번호 입력 받음
 				
-				//입력한 글 번호가 존재하는지를 찾아라.
+				//입력한 글 번호가 존재하는지를 찾음
 				if(chNum>0 && chNum<=currentPosition) {
 					
 					//찾으면 해당 글 번호의 수정할 정보(글 제목, 글 내용, 작성자)
 					while(true) {
+						
 						System.out.println("수정할 정보를 선택하세요. (1)글제목 (2)글 내용 (3)작성자 (4)나가기");
 						String chgMenu=keyboard.next();
+						
 						if(chgMenu.equals("1")) {
+							
 							System.out.println("수정할 글 제목을 입력하세요.");
 							titles[chNum-1]=keyboard.next();
+							
 						} else if(chgMenu.equals("2")) {
+							
 							System.out.println("수정할 글 내용을 입력하세요.");
 							contents[chNum-1]=keyboard.next();
+							
 						} else if(chgMenu.equals("3")) {
+							
 							System.out.println("수정할 작성자를 입력하세요.");
 							names[chNum-1]=keyboard.next();
+							
 						} else if(chgMenu.equals("4")) {
-							break;
+							
+							break; // 나가기
+							
 						} else {
+							
 							System.out.println("1~4를 선택해야합니다. 다시 입력해주세요.");
+							
 						}
 					}
-					while(true) {
+					
+					// 위의 글 수정 while문이 종료된 후 실행
+					while(true){
+						
 						System.out.println("(1)글 목록 보기 (2)프로그램 종료");
 						String menu=keyboard.next();
-						if(menu.equals("1")) { //글 목록 출력
-							selectedMenu=4; break;
-						} else if(menu.equals("2")) { //프로그램 종료
-							exit=false; break;
+						
+						if(menu.equals("1")){ //글 목록 출력
+							selectedMenu=4; 
+							break;
+						}else if(menu.equals("2")){ //프로그램 종료
+							exit=false; 
+							break;
 						}
-						System.out.println("1~2를 선택해야합니다. 다시 입력해주세요."); //다른 키를 입력했을 때 경고 메세지 출력
-					}
+						
+						System.out.println("1~2를 선택해야합니다. 다시 입력해주세요."); //다른 키를 입력했을 때 경고 메세지 출력	
+					} // while문 종료
+					
 				} else {
-						System.out.println("글 번호"+chNum+"은 존재하지 않습니다. 메뉴화면으로 돌아갑니다.");
-					}	
+					System.out.println("글 번호"+chNum+"은 존재하지 않습니다. 메뉴화면으로 돌아갑니다.");
+				} // if문 종료
 
 			} else if(selectedMenu == 4) {
-				selectedMenu=4;
+				
+				selectedMenu = 4;
+				
 			} else if(selectedMenu == 5) {
+				
 				break;
+				
 			} else {
+				
 				System.out.println("메뉴는 1~5를 선택해야 합니다.");
 				System.out.println("메뉴를 다시 선택해 주세요.");
-			}			
+				
+			}	
 		} // end while
+		
 		keyboard.close();
 		System.out.println("프로그램 종료");
+		
 	}
 }
