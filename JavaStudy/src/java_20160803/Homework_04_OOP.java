@@ -130,7 +130,6 @@ public class Homework_04_OOP {
 			
 			for(int i=0; i<totalArticleNumber; i++){
 				if(selectedArtNum == articleNumber[i]){ // 선택한 글번호를 찾으면
-					//articleReadCount[selectedArtNum] = articleReadCount[selectedArtNum] + 1; 작동 안함
 					articleReadCount[i] = articleReadCount[i] + 1; // 조회수 1 증가
 					printList(i);					  // 리스트를 출력	
 					isFind = true;					  // 글번호를 찾았으므로 true로 변경
@@ -263,8 +262,6 @@ public class Homework_04_OOP {
 			
 		}
 	}
-	
-	
 	
 	public static void modifyTitle(int selectedArticle){
 		// 제목 입력
