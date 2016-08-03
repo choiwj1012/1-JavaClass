@@ -164,7 +164,7 @@ public class Homework_04_fixed {
 
 			} else if(selectedMenu == 4) {
 				
-				selectedMenu = 4;
+				// selectedMenu = 4; 필요없음
 				
 			} else if(selectedMenu == 5) {
 				

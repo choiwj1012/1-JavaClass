@@ -19,7 +19,6 @@ class Tv{
 	void channelDown(){
 		--channel;
 	}
-	
 }
 
 class TvChild extends Tv{
@@ -47,10 +46,10 @@ public class TvTest {
 		
 		System.out.println("현재 채널은 " + t.channel + "입니다."); // t.channel == 7;
 		
-		t.channelUp(); // Tv 클래스의 channelUp()메소드를 사용한다
+		t.channelUp(); // Tv 클래스의 channelUp()메소드를 사용한다 => 메소드를 호출한다.
 		System.out.println("현재 채널은 " + t.channel + "입니다."); // t.channel == 8;
 		
-		t.channelDown(); // Tv 클래스의 channelDown()메소드를 사용한다
+		t.channelDown(); // Tv 클래스의 channelDown()메소드를 사용한다 => 메소드를 호출한다.
 		System.out.println("현재 채널은 " + t.channel + "입니다."); // t.channel == 7;
 		
 		System.out.println("---------------------------------------------------------------------------");
@@ -62,11 +61,48 @@ public class TvTest {
 		
 		System.out.println("현재 채널은 " + tChild.channel + "입니다."); // tChild.channel == 7;
 		
-		tChild.channelUp();
+		tChild.channelUp(); // => channelUp() 메소드를 호출한다.
 		System.out.println("현재 채널은 " + tChild.channel + "입니다."); // tChild.channel == 9;
 		
-		tChild.channelDown();
+		tChild.channelDown(); // => channelDown() 메소드를 호출한다.
 		System.out.println("현재 채널은 " + tChild.channel + "입니다."); // tChild.channel == 7;
 		
+		System.out.println("---------------------------------------------------------------------------");
+		
+		Calculator cal = new Calculator();
+		
+		int sumResult = cal.add(1,2);         // Math클래스의 add()메서드 호출
+		int subResult = cal.subtract(5,1);    // Math클래스의 subtract()메서드 호출
+		int mulResult = cal.multiply(3,5);    // Math클래스의 multiply()메서드 호출
+		double divResult = cal.divide(7, 3);  // Math클래스의 divide()메서드 호출
+		
+		System.out.println(sumResult + "," + subResult + "," + mulResult + "," + divResult);
 	}  
 }
+
+class Calculator{
+	
+	int add(int a, int b){   // 메서드 호출시 parameter의 갯수, 타입은 일치해야 작동한다
+		int result = a + b;
+		return result;       // void타입이 아니면 반드시 return값이 존재해야 하며, parameter는 여러개 가능하나 return은 단 하나만 가능하다.
+	}
+	
+	int subtract(int a, int b){
+		int result = a - b;
+		return result;
+	}
+	
+	int multiply(int a, int b){
+		int result = a * b;
+		return result;
+	}
+	
+	double divide(int a, int b){
+		int result = a / b;
+		return result;
+	}
+	
+}
+
+
+
