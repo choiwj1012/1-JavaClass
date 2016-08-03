@@ -76,7 +76,7 @@ public class Homework_04_fixed {
 				num[currentPosition] = currentPosition+1;   // 글번호 1 추가
 				count[currentPosition] = 0;                 // 조회수는 0
 
-				currentPosition = currentPosition + 1;      // 글이 하나 작성되었으므로 글 갯수를 1 추가
+				currentPosition = currentPosition + 1;      
 				
 			} else if(selectedMenu == 2) {
 				
