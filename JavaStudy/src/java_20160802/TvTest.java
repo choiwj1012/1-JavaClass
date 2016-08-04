@@ -3,6 +3,9 @@ package java_20160802;
 class Tv{
 	// 클래스는 '객체를 생성하기 위한 틀'이며, '클래스는 속성과 기능으로 정의되어있다'
 	
+	// 클래스 변수
+	final static int WIDTH = 300;
+	final static int HEIGHT = 300;
 	
 	// Tv의 속성 (멤버변수)
 	String color;  // tv 색상
@@ -34,6 +37,10 @@ class TvChild extends Tv{
 
 public class TvTest {
 	public static void main(String[] args){
+		
+		// 클래스 변수의 경우 인스턴스를 생성하지 않아도 클래스이름.클래스변수 의 형태로 바로 사용 가능하다.
+		System.out.println(Tv.WIDTH);
+		System.out.println(Tv.HEIGHT);
 		
 		Tv t;           // Tv 인스턴스를 참조하기 위한 변수 t를 선언
 		// Tv 클래스 타입의 참조변수 t를 선언한다. 메모리에 참조변수 t를 위한 공간이 마련된다. 아직 인스턴스가 생성되지 않았으므로 참조변수로 아무것도 할 수 없다.
