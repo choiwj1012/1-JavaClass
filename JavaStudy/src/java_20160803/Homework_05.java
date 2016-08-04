@@ -13,7 +13,7 @@ package java_20160803;
 
 import java.util.Scanner;
 
-public class Homework_04_OOP {
+public class Homework_05 {
 	
 	static Scanner keyboard = new Scanner(System.in);
 	
@@ -130,8 +130,8 @@ public class Homework_04_OOP {
 			
 			for(int i=0; i<totalArticleNumber; i++){
 				if(selectedArtNum == articleNumber[i]){ // 선택한 글번호를 찾으면
+					printList(i);					  // 리스트를 출력
 					articleReadCount[i] = articleReadCount[i] + 1; // 조회수 1 증가
-					printList(i);					  // 리스트를 출력	
 					isFind = true;					  // 글번호를 찾았으므로 true로 변경
 				}
 			}
@@ -166,7 +166,7 @@ public class Homework_04_OOP {
 			System.out.println("잘못 쓰셨습니다. yes나 no로 입력해주세요");
 			review();
 		}
-	}
+	} // review() end
 	
 	// 목록 표시 타이틀 표시
 	public static void printListTitle(){
@@ -179,7 +179,7 @@ public class Homework_04_OOP {
 		
 		System.out.println();
 	
-	}
+	} // printListTitle() end
 	
 	// 목록 표시
 	public static void printList(int selectedArticle){
@@ -261,26 +261,31 @@ public class Homework_04_OOP {
 			System.out.println("잘못 쓰셨습니다. yes나 no로 입력해주세요");
 			
 		}
-	}
+	} // remodify() end
 	
 	public static void modifyTitle(int selectedArticle){
 		// 제목 입력
 		System.out.print("제목을 입력해 주세요 >");
 		String modifyTitle = keyboard.next();
 		articleTitles[selectedArticle] = modifyTitle;
-	}
+		
+	} // modifyTitle() end
 	
 	public static void modifyWriter(int selectedArticle){
+		// 작성자 입력
 		System.out.print("작성자를 입력해 주세요 >");
 		String modifyWriter = keyboard.next();
 		articleWriters[selectedArticle] = modifyWriter;
-	}
+		
+	} // modifyWriter() end
 	
 	public static void modifyContent(int selectedArticle){
+		// 내용 입력
 		System.out.print("내용을 입력해 주세요 >");
 		String modifyContent = keyboard.next();
-		articleContents[selectedArticle] = modifyContent;	
-	}
+		articleContents[selectedArticle] = modifyContent;
+		
+	} // modifyContent() end
 	
 	// 목록보기
 	public static void articleListView(){
