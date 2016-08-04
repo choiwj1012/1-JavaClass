@@ -13,8 +13,9 @@ public class Main6 {
 		final String PRIFIX_SN = "r_";
 		
 		Scanner keyboard = new Scanner(System.in);
-		boolean exit = false;
+		boolean exit = false; 
 		
+		// 메뉴 선택 시작
 		while(!exit){
 			
 			System.out.println("메뉴 선택");
@@ -46,63 +47,82 @@ public class Main6 {
 					break;
 					
 				case 2 :
-					System.out.println("제품 번호 : ");
-					String searchSN = keyboard.next();
-					
+					boolean stopCase2 = false;
 					boolean isFind = false;
 					boolean stopAction = false;
-					while(!stopAction){
-						for(int i=0; i<currentRobotCount; i++){
-							if(searchSN.equals(robots[i].getSn())){
-								isFind = true;
-								System.out.println("원하시는 행동을 선택해 주세요");
-								System.out.println("1 걷기 | 2 뛰기 | 3 미사일발사 | 4 검휘두르기 | 5 종료");
-								
-								int chooseNum = keyboard.nextInt();
-								switch(chooseNum){
-									case 1 :
-										System.out.print(robots[i].getSn()+" 로봇이 ");
-										robots[i].actionWalk();
-										break;
-										
-									case 2 :
-										System.out.print(robots[i].getSn()+" 로봇이 ");
-										robots[i].actionRun();
-										break;
-										
-									case 3 :
-										System.out.print(robots[i].getSn()+" 로봇이 ");
-										robots[i].actionMissile();
-										break;
-										
-									case 4 :
-										System.out.print(robots[i].getSn()+" 로봇이 ");
-										robots[i].actionKnife();
-										break;
-										
-									case 5 :
-										System.out.println("종료합니다");
-										stopAction = true;
-										break;
-										
-									default :
-										System.out.println("잘못입력하셨습니다");
-										
-								} // switch end
-							} // if end
-						} // for end
+					
+					while(!stopCase2){
 						
-						if(!isFind){
-							System.out.println("찾으시는 로봇이 없습니다.");
+						System.out.println("제품 번호 : ");
+						String searchSN = keyboard.next();
+						
+						while(!stopAction){
+							for(int i=0; i<currentRobotCount; i++){
+								if(searchSN.equals(robots[i].getSn())){
+									isFind = true;
+									System.out.println("원하시는 행동을 선택해 주세요");
+									System.out.println("1 걷기 | 2 뛰기 | 3 미사일발사 | 4 검휘두르기 | 5 종료");
+									
+									int chooseNum = keyboard.nextInt();
+									switch(chooseNum){
+										case 1 :
+											System.out.print(robots[i].getSn()+" 로봇이 ");
+											robots[i].actionWalk();
+											break;
+											
+										case 2 :
+											System.out.print(robots[i].getSn()+" 로봇이 ");
+											robots[i].actionRun();
+											break;
+											
+										case 3 :
+											System.out.print(robots[i].getSn()+" 로봇이 ");
+											robots[i].actionMissile();
+											break;
+											
+										case 4 :
+											System.out.print(robots[i].getSn()+" 로봇이 ");
+											robots[i].actionKnife();
+											break;
+											
+										case 5 :
+											System.out.println(robots[i].getSn() + "로봇을 종료합니다");
+											stopAction = true;
+											break;
+											
+										default :
+											System.out.println("잘못입력하셨습니다");
+											
+									} // case2 > switch
+								} // case2 > switch > if 
+							} // case2 > switch > if > for 
+							
+							if(!isFind){
+								System.out.println("찾으시는 로봇이 없습니다.");
+								break;
+							}
+							
+						} // case2 > first while > second while		
+						
+						System.out.println("재운용하시겠습니까? yes or no");
+						String chooseYN = keyboard.next();
+						
+						if(chooseYN.equals("yes") || chooseYN.equals("YES")){
+							isFind = false;
+							stopAction = false;
+						}else if(chooseYN.equals("no") || chooseYN.equals("NO")){
+							stopCase2 = true;
 							break;
+						}else{
+							System.out.println("재입력하십시오");
 						}
-						
-					} // while end			
+	
+					} // case2 > first while 
 					break;
 					
 				case 3 :
 					System.out.println("제품 번호 :");
-					searchSN = keyboard.next();
+					String searchSN = keyboard.next();
 					
 					isFind = false;
 					for(int i=0; i<currentRobotCount; i++){
@@ -113,7 +133,7 @@ public class Main6 {
 							isFind = true;
 							break;
 						}
-					} // for end
+					} // case3 > for
 					
 					if(!isFind){
 						System.out.println("찾으시는 로봇이 없습니다");
@@ -136,7 +156,7 @@ public class Main6 {
 							isFind = true;
 							break;	
 						}
-					} // for end
+					} // case4 > for
 					
 					if(!isFind){
 						System.out.println("찾으시는 로봇이 없습니다");
@@ -163,13 +183,13 @@ public class Main6 {
 				default :
 					System.out.println("메뉴를 다시 선택해 주세요");
 					
-			} // switch end
+			} // while > switch
 			
-		} // while end
+		} // while
 		
 		System.out.println("프로그램 종료");
 		keyboard.close();
 		
-	} // main() end
+	} // main()
 	
 }
