@@ -20,6 +20,7 @@ public class Eagle extends Fighter {
 	public void goToField() {
 
 		System.out.println("공중에서 정찰중입니다");
+		System.out.println("전장으로 이동합니다");
 		
 	}
 

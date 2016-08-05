@@ -19,8 +19,9 @@ public class Hunter extends Fighter {
 	@Override
 	public void goToField() {
 		
+		System.out.println("전장으로 이동합니다");
 		System.out.println("수풀에 숨어 대기합니다");
-		
+
 	}
 
 }

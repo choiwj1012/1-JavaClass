@@ -7,6 +7,12 @@ public abstract class Fighter {
 	AttackHandToHand attackHandToHand;
 	Defence defence;
 	
+	// variable
+	public static int health;
+	public static int mana;
+	public static int offensivePower;
+	public static int defensivePower;
+	
 	// constructor
 	public Fighter() {
 		
@@ -50,8 +56,5 @@ public abstract class Fighter {
 	// common method
 	public abstract void identity();
 	public abstract void goToField();
-	public void meetTogether(){
-		System.out.println("전장에 모입니다");
-	}
 	
 }

@@ -20,6 +20,7 @@ public class Defender extends Fighter {
 	public void goToField() {
 
 		System.out.println("주위를 살핍니다");
+		System.out.println("전장으로 이동합니다");
 		
 	}
 
