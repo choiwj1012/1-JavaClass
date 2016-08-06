@@ -1,9 +1,9 @@
-package java_20160805_Robot_Inheritance;
+package java_20160805_Robot_Extends;
 
-public class StandardRobot extends Robot{
+public class LowRobot extends Robot{
 
 	// constructor
-	StandardRobot(){
+	LowRobot(){
 		
 	}
 	
@@ -18,14 +18,14 @@ public class StandardRobot extends Robot{
 	@Override
 	public void actionMissile(){
 		
-		System.out.println("로봇이 미사일을 쏩니다");
+		System.out.println("로봇이 미사일을 쏠 수 없습니다");
 		
 	} // actionMissle() end
 	
 	@Override
 	public void actionKnife(){
 		
-		System.out.println("로봇이 목검을 휘두릅니다");
+		System.out.println("로봇이 검이 없습니다");
 		
 	} // actionKnife() end
 	

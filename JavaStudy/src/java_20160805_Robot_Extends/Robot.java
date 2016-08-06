@@ -1,4 +1,4 @@
-package java_20160805_Robot_Inheritance;
+package java_20160805_Robot_Extends;
 
 // abstract class => Can`t create instance 
 public abstract class Robot extends UnusualAction{

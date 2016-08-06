@@ -27,7 +27,7 @@
  *     => 미사일을 쏠 수 없다.
  *     => 검이 없다.*/
 
-package java_20160805_Robot_Inheritance;
+package java_20160805_Robot_Extends;
 
 public class Main {
 	

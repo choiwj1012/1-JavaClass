@@ -1,4 +1,4 @@
-package java_20160805_Robot_Inheritance;
+package java_20160805_Robot_Extends;
 
 public class SuperRobot extends Robot{
 
