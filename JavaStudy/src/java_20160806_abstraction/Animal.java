@@ -2,6 +2,8 @@ package java_20160806_abstraction;
 
 public class Animal {
 	
+	static int age = 0;
+	
 	static{
 		System.out.println("동물 클래스 레디 온 !");
 	}
