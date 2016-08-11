@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="0" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<item value="C:\Users\choi\Desktop\github\Java\.git" key="GitSelectRepositoryPage.lastRepository"/>
+	<list key="CommitDialog.authorValues">
+		<item value="choiwj1012 &lt;choiwj1012@hanmail.net&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="choiwj1012 &lt;choiwj1012@hanmail.net&gt;"/>
+	</list>
+	<section name="GitImportWizard">
+		<item value="true" key="GitProjectsImportPage.STORE_NESTED_PROJECTS"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item value="200,200" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="false" key="sortItemState"/>
+		<item value="200,200" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+	</section>
+</section>
