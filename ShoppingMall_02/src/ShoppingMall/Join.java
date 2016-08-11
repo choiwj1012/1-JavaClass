@@ -2,7 +2,7 @@ package ShoppingMall;
 
 import java.util.Scanner;
 
-public class JoinUser extends Menu {
+public class Join extends Menu {
 	
 	public void join() {
 		
@@ -51,7 +51,7 @@ public class JoinUser extends Menu {
 		}
 		
 		// 입력받은 아이디, 비밀번호, 이름, 결제방식을 저장
-		UserRepository.user[UserRepository.currentUserCount] = new Users(currentId, currentPassword, currentName, payType);
+		UserRepository.users[UserRepository.currentUserCount] = new Users(currentId, currentPassword, currentName, payType);
 		
 		// 가입된 유저수 1 증가
 		UserRepository.currentUserCount=UserRepository.currentUserCount+1;

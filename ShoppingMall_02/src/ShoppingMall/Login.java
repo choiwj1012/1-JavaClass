@@ -21,7 +21,7 @@ public class Login {
 			// 입력된 아이디와 저장된 아이디를 비교
 			for(int i=0; i<UserRepository.currentUserCount; i++) {
 				// 입력된 아이디와 저장된 아이디가 같으면
-				if(checkId.equals(UserRepository.user[i].getId())) {
+				if(checkId.equals(UserRepository.users[i].getId())) {
 					
 					UserRepository.currentUser = i;
 					firstExit = true;
@@ -49,7 +49,7 @@ public class Login {
 			System.out.print("Password: ");
 			checkPassword = keyboard.next();
 			
-			if(checkPassword.equals(UserRepository.user[UserRepository.currentUser].getPassword())) {
+			if(checkPassword.equals(UserRepository.users[UserRepository.currentUser].getPassword())) {
 				
 				System.out.println("환영합니다 " + checkId + "님");
 				ProductList productList = new ProductList();

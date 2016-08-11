@@ -14,7 +14,7 @@ public class ProductList implements ProductRepository{
 		for(int i=0; i<MAX_PRODUCT_COUNT;i++) {
 			
 			System.out.print("[" + i + "]");
-			ProductRepository.product[i].printDetail();
+			ProductRepository.products[i].printDetail();
 			
 		}
 		
@@ -39,7 +39,7 @@ public class ProductList implements ProductRepository{
 		
 			default:
 				int productSelect = Integer.parseInt(selectedProduct);
-				cart.add(product[productSelect]);
+				cart.add(products[productSelect]);
 				productList();
 		}
 		

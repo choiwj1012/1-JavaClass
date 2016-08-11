@@ -20,7 +20,7 @@ public class Menu {
 			switch(selectedMenu) {
 			
 				case 1:
-					JoinUser joinUser = new JoinUser(); 
+					Join joinUser = new Join(); 
 					joinUser.join(); 
 					break;
 				
