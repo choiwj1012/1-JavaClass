@@ -1,4 +1,4 @@
-package ShoppingMall;
+package shoppingMall;
 
 import java.util.Scanner;
 

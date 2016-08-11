@@ -1,4 +1,4 @@
-package ShoppingMall;
+package shoppingMall;
 
 public class Main {
 	

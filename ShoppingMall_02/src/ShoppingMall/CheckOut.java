@@ -1,4 +1,4 @@
-package ShoppingMall;
+package shoppingMall;
 
 import java.util.Scanner;
 
@@ -20,7 +20,7 @@ public class CheckOut implements ProductRepository{
 		}
 		
 		System.out.println("========================");
-		System.out.println("결제 방법: "+UserRepository.users[UserRepository.currentUser].getPayType());
+		System.out.println("결제 방법: "+UserRepository.users[UserRepository.currentUserNumber].getPayType());
 
 		System.out.println("합계: " + total + " 원 입니다.");
 		System.out.println("이전으로 가시려면 [p]를 입력하세요");

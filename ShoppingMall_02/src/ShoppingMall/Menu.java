@@ -1,4 +1,4 @@
-package ShoppingMall;
+package shoppingMall;
 
 import java.util.Scanner;
 
@@ -26,7 +26,7 @@ public class Menu {
 				
 				case 2: 
 					Login login = new Login();
-					login.login(); 
+					login.inputId(); 
 					break;
 				
 				case 3: 

@@ -1,10 +1,12 @@
-package ShoppingMall;
+package shoppingMall;
 
 import java.util.Scanner;
 
 public class Login {
 	
-	public void login() {
+	private String checkId;
+	
+	public void inputId() {
 		
 		Scanner keyboard = new Scanner(System.in);
 
@@ -12,18 +14,21 @@ public class Login {
 		System.out.println("========================");
 		System.out.println("나가시려면 '0'을 누르십시오");
 		System.out.print("Id를 입력하십시오 : ");
-		String checkId = keyboard.next();
-		String checkPassword;
+		checkId = keyboard.next();
 
 		// 아이디 체크
+		boolean isFind = false;
 		boolean firstExit = false;
 		while(!firstExit) {
+			
 			// 입력된 아이디와 저장된 아이디를 비교
 			for(int i=0; i<UserRepository.currentUserCount; i++) {
+				
 				// 입력된 아이디와 저장된 아이디가 같으면
 				if(checkId.equals(UserRepository.users[i].getId())) {
-					
-					UserRepository.currentUser = i;
+					UserRepository.currentUserNumber = i;
+					isFind = true;
+					inputPassword();
 					firstExit = true;
 					
 				} else if(checkId.equals("0")) {
@@ -32,42 +37,47 @@ public class Login {
 					menu.menuList();
 					break;
 					
-				} else {
-					
-					System.out.println("Id is not exist. Please try again."); 
-					break;
-					
 				}
 			}
 			
 		}
 		
-		// 비밀번호 체크
+		if(!isFind){
+			System.out.println("Id is not exist. Please try again.");
+		}
+			
+	}
+	
+	public void inputPassword(){
+	
+		Scanner keyboard = new Scanner(System.in);
 		boolean secondExit = false;
 		while(!secondExit) {
-			
+
 			System.out.print("Password: ");
-			checkPassword = keyboard.next();
-			
-			if(checkPassword.equals(UserRepository.users[UserRepository.currentUser].getPassword())) {
-				
+			String checkPassword = keyboard.next();
+
+			if(checkPassword.equals(UserRepository.users[UserRepository.currentUserNumber].getPassword())) {
+
 				System.out.println("환영합니다 " + checkId + "님");
 				ProductList productList = new ProductList();
 				productList.productList();
 				secondExit = true;
-				
+
 			} else if(checkPassword.equals("0")){
-				
+
 				Menu menu = new Menu();
 				menu.menuList();
 				break;
-				
+
 			} else {
-				
+
 				System.out.println("Password is not correct. Please try again.");
-				
+
 			}
 		}
+
+
 	}
 	
 }

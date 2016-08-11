@@ -1,4 +1,4 @@
-package ShoppingMall;
+package shoppingMall;
 
 import java.util.Scanner;
 
@@ -54,7 +54,7 @@ public class Join extends Menu {
 		UserRepository.users[UserRepository.currentUserCount] = new Users(currentId, currentPassword, currentName, payType);
 		
 		// 가입된 유저수 1 증가
-		UserRepository.currentUserCount=UserRepository.currentUserCount+1;
+		UserRepository.currentUserCount = UserRepository.currentUserCount + 1;
 		
 		System.out.println("회원가입 되었습니다.");
 	}
