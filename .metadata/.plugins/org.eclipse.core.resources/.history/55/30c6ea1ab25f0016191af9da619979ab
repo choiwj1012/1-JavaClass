@@ -1,0 +1,191 @@
+package shop_20160810;
+
+import java.util.Scanner;
+
+public class ShopProcess {
+
+	private Scanner keyboard = new Scanner(System.in);
+
+	public void mainMenu() {
+		boolean exit =false;		//exit = false로 초기값 선언
+
+		while(!exit){				//무한루프 실행 true값임으로 무한루프
+			System.out.println("쇼핑몰의 메인 메뉴입니다.");
+			System.out.println("메뉴를 선택 하세요");
+			System.out.println("1. 상품 등록");
+			System.out.println("2. 사용자 등록");
+			System.out.println("3. 사용자 로그인");
+			System.out.println("4. 쇼핑 안하기");
+			int selectedMain = keyboard.nextInt();		//키보드로부터 정수를입력받음
+
+			if(selectedMain == 1){ //상품 등록
+				insertProductInProductList();				
+			}else if(selectedMain == 2){  //사용자 등록
+				insertUserInUserList();
+			}else if(selectedMain == 3){
+				login();
+			}else if(selectedMain == 4){
+				exit = true;
+			}else{
+				System.out.println("메뉴를 다시 선택해주세요");
+			}
+		}
+	}
+	
+
+	public void insertProductInProductList() {
+
+		System.out.println("등록할 상품 정보를 입력하세요.");
+		System.out.print("상품 이름 : ");
+		String name = keyboard.next();
+		System.out.print("상품 가격 : ");
+		int price = keyboard.nextInt();
+		System.out.print("상품 정보 : ");
+		String information = keyboard.next();
+
+		Product newProduct = new Product(name, price, information);
+		newProduct.setNumber(ShopRepository.lastProductPositionInProductList + 1);
+		ShopRepository.products[ShopRepository.lastProductPositionInProductList] = newProduct;				
+		//ShopRepository.products[ShopRepository.lastProductPositionInProductList] = new Product(name, price, information);
+
+		
+		ShopRepository.lastProductPositionInProductList = ShopRepository.lastProductPositionInProductList + 1;
+
+	}
+	
+
+	public void insertUserInUserList() {
+
+		System.out.println("등록할 사용자 정보를 입력하세요.");
+		System.out.print("사용자 ID : ");
+		String id = keyboard.next();
+		System.out.print("사용자 PW : ");
+		String pw = keyboard.next();
+		System.out.print("사용자 이름 : ");
+		String name = keyboard.next();
+
+		User newUser = new User(id, pw, name);
+		newUser.setNumber(ShopRepository.lastUserPositionInUserList + 1);
+		ShopRepository.users[ShopRepository.lastUserPositionInUserList] = newUser;
+
+		ShopRepository.lastUserPositionInUserList = ShopRepository.lastUserPositionInUserList + 1;
+
+	}
+
+
+	public void login() {
+
+		System.out.println("로그인 정보를 입력하세요.");
+		System.out.print("사용자 ID : ");
+		String id = keyboard.next();
+		System.out.print("사용자 PW : ");
+		String pw = keyboard.next();
+
+		boolean isFind = false;
+		for(int i = 0 ; i < ShopRepository.lastUserPositionInUserList ; i++) {
+			if(ShopRepository.users[i].getId().equals(id)) {
+				if(ShopRepository.users[i].getPw().equals(pw)) {
+					displayProductList();										
+					isFind = true;
+					break;
+				}
+			}
+		}
+
+		if(!isFind) {
+			System.out.println("아이디 또는 암호가 틀립니다.");
+		}
+
+	}
+
+
+	public void displayProductList() { 
+
+		System.out.println("번호\t상품명\t가격\t정보");
+		for(int i = 0; i < ShopRepository.lastProductPositionInProductList ; i++) {
+			System.out.print(ShopRepository.products[i].getNumber() + "\t");
+			System.out.print(ShopRepository.products[i].getName() + "\t");
+			System.out.print(ShopRepository.products[i].getPrice() + "\t");
+			System.out.println(ShopRepository.products[i].getInformation());
+		}
+
+		purchase();
+
+	}
+	
+
+	public void purchase() {
+
+		boolean exit = false;
+		while(!exit) {
+
+			System.out.print("구매할 상품 번호 : ");
+			int number = keyboard.nextInt();
+
+			for(int i = 0 ; i < ShopRepository.lastProductPositionInProductList ; i++) {
+				if(ShopRepository.products[i].getNumber() == number) {
+					ShopRepository.carts[ShopRepository.lastProductPositionInCartList] = ShopRepository.products[i];
+					ShopRepository.lastProductPositionInCartList = ShopRepository.lastProductPositionInCartList + 1; 
+				}
+			}
+			
+			System.out.print("계속 하시겠습니까?(y/n)" );			
+			char isContinue = keyboard.next().charAt(0);
+			
+			if(isContinue == 'n') {
+				exit = true;
+			}
+			
+		}
+		
+		displayPaymentInformation();
+
+	}
+	
+	
+	public void displayPaymentInformation() {
+		
+		displayCartList();
+		
+	}
+	
+	
+	public void displayCartList() { 
+
+		int sum = 0;
+		System.out.println("번호\t상품명\t가격\t정보");
+		for(int i = 0; i < ShopRepository.lastProductPositionInCartList ; i++) {
+			System.out.print(ShopRepository.carts[i].getNumber() + "\t");
+			System.out.print(ShopRepository.carts[i].getName() + "\t");
+			System.out.print(ShopRepository.carts[i].getPrice() + "\t");
+			System.out.println(ShopRepository.carts[i].getInformation());
+			
+			sum = sum + ShopRepository.carts[i].getPrice();
+		}
+		
+		System.out.println("합계 : " + sum);
+		
+		actionPayment();
+		
+	}
+	
+	
+	public void actionPayment() {
+		
+		System.out.println("결제했습니다.");
+		
+		ShopRepository.carts = new Product[ShopRepository.MAX_PRODUCT_COUNT_IN_CART_LIST];
+		
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+package java_20160811;
+
+public class Main {
+	
+	static Product[] products = new Product[3];
+	
+	public static void main(String[] args){
+	
+		Main.products[0] = new Product("1", 1, "1");
+		
+	}
+	
+}

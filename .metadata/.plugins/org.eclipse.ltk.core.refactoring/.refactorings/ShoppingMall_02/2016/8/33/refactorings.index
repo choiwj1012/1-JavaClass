@@ -2,3 +2,5 @@
 1470875510216	Rename field 'user'
 1470875531237	Rename type 'JoinUser'
 1470875543637	Rename type 'IShop'
+1470881352557	Rename method 'login'
+1470886116621	Rename package 'ShoppingMall'
