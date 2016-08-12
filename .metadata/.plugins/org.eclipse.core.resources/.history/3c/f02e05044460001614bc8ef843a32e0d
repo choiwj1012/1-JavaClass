@@ -1,0 +1,11 @@
+package lotto;
+
+public class Lotto {
+	
+	public static void main(String[] args){
+		
+		int rottoNumber = Integer.parseInt(Math.random() + 45); 
+		
+	}
+	
+}

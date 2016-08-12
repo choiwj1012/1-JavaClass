@@ -1,0 +1,30 @@
+package java_20160812_Account;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Account account = new Account(); // 통장개설
+		account.deposit(100);
+		System.out.println("잔액 : " + account.getBalance());
+		
+		account.withdraw(70);
+		System.out.println("잔액 : " + account.getBalance());
+		
+		account.withdraw(70);
+		System.out.println("잔액 : " + account.getBalance());
+		
+		MinusAccount minusAccount = new MinusAccount(1000);
+		System.out.println(minusAccount.getBalance());
+		minusAccount.withdraw(500);
+		System.out.println(minusAccount.getBalance());
+		minusAccount.withdraw(500);
+		System.out.println(minusAccount.getBalance());
+		minusAccount.withdraw(500);
+		System.out.println(minusAccount.getBalance());
+		
+		
+		
+	}
+
+}

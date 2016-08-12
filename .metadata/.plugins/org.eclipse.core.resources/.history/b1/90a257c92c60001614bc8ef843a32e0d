@@ -1,0 +1,14 @@
+package java_20160812_Account;
+
+public class MinusAccount extends Account {
+
+	private int loan;
+	
+	@Override
+	public void withdraw(int withdrawAmount) {
+		
+	}
+
+	
+	
+}

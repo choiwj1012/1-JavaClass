@@ -20,17 +20,17 @@ public class Start {
 			System.out.println("3. 나가기");
 
 			int selectedMain = keyboard.nextInt();		
-			if(selectedMain == 1){					
-				// 회원가입
-				process.insertUserInUserList();
+			if(selectedMain == 1){		
+				
+				process.insertUserInUserList(); // 회원가입
 				
 			}else if(selectedMain == 2){
-				// 로그인
-				process.login();
+				
+				process.login(); // 로그인
 				
 			}else if(selectedMain == 3){
-				// 프로그램 종료
-				exit = true;
+				
+				exit = true; // 프로그램 종료
 				
 			} else {
 				

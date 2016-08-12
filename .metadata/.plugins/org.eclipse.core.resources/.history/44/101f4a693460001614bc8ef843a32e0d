@@ -1,0 +1,12 @@
+package java_20160812;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		Plus p = new Plus();
+		p.plus(10, 20);
+		
+	}
+
+}

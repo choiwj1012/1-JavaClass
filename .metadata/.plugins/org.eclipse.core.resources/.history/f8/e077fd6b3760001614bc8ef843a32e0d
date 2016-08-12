@@ -1,0 +1,35 @@
+package java_20160812_Overload;
+
+public class Plus {
+
+	public double plus(double num1, double num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public double plus(double num1, double num2){
+		
+		return num1 - num2;
+		
+	}
+	
+	public double plus(int num1, double num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public double plus(double num1, int num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public double plus(int num1, int num2){
+		
+		return num1 + num2;
+		
+	}
+	
+}

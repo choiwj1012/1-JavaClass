@@ -1,0 +1,31 @@
+package java_20160812_Calculator_02;
+
+public class Plus {
+
+	public int plusForIntAndInt(int num1, int num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public int plusForDoubleAndInt(double num1, int num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public int plusForIntAndDouble(int num1, double num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public int plusForDoubleAndDouble(double num1, double num2){
+		
+		return num1 + num2;
+		
+	}
+
+	
+
+}

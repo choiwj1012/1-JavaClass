@@ -1,0 +1,41 @@
+package lotto;
+
+import java.util.Scanner;
+
+public class Lotto {
+
+	public static void main(String[] args){
+
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("로또번호 자동 생성기 프로그램");
+		System.out.println("시작하시려면 1번을 눌러주세요. 종료는 2번");
+		int i = 0;
+		boolean isFind = false;
+		int[] lottoNumber = new int[6];
+		
+		while(i<6){
+			
+			isFind = false;
+			
+			lottoNumber[i] = (int)(Math.random() * 6) + 1;
+			
+			for(int j=0; j<i; j++){
+				if(lottoNumber[i] == lottoNumber[j]){
+					isFind = true;
+					break;
+				}
+			}
+			
+			if(isFind){
+				continue;
+			}
+			
+			System.out.println(lottoNumber[i]);	
+			i++;
+
+		}
+
+	}
+
+}
+

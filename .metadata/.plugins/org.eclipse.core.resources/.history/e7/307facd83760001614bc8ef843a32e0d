@@ -1,0 +1,47 @@
+package java_20160812_Overload;
+
+public class Plus {
+
+	// method Overload 
+	// 1. parameter의 data type이 다르면 인정
+	// 2. parameter의 숫자가 다르면 인정
+	// 3.
+	
+	
+	public double plus(double num1, double num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public double plus(double num1, double num2, double num3){
+		
+		return num1 + num2;
+		
+	}
+	
+	public double plus(int num1, double num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public double plus(double num1, int num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public double plus(int num1, int num2){
+		
+		return num1 + num2;
+		
+	}
+	
+	public int plus(int num1, int num2){
+		
+		return num1 + num2;
+		
+	}
+	
+}

@@ -1,0 +1,698 @@
+package shop;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ShopProcess {
+
+	// 메인메뉴로 돌아가기 위해서 인스턴스 생성
+	Start start = new Start();
+	private Scanner keyboard = new Scanner(System.in);
+
+
+	public void mainMenu() { // 메인메뉴
+
+		boolean exit =false;
+		while(!exit){		
+
+			String[] mainMenu = {"쇼핑몰의 메인 메뉴입니다.","메뉴를 선택 하세요","[c]. 구매하기","[m]. 회원정보수정","[r]. 회원정보조회","[o]. 로그아웃","[w]. 회원탈퇴"};
+			for(int i=0; i<mainMenu.length; i++){
+				System.out.println(mainMenu[i]);
+			}
+
+			String selectedProduct = keyboard.next();
+			switch(selectedProduct) {
+
+			case "c":
+
+				purchase();	 // 구매하기				
+				break;
+
+			case "m":
+
+				updateUserInformation(); // 회원정보수정
+				break;
+
+			case "r":
+
+				viewUserInformation(); // 회원정보조회
+				break;
+
+			case "o":
+
+				System.out.println("로그아웃 되었습니다");
+				ShopRepository.loginUserNumber = 0; // 로그아웃 하였으므로 로그인한 유저 번호 초기화
+				start.start(); // 로그아웃
+				break;
+
+			case "w":
+
+				withdrawMember(); // 회원탈퇴
+				break;
+
+			default:
+
+				System.out.println("잘못입력하셨습니다. 다시 입력해주세요.");
+
+			}
+		}
+
+	} // mainMenu() end
+
+
+
+	public void adminMenu() { // 관리자 메뉴
+
+		boolean exit =false;		
+		while(!exit){
+
+			String[] adminMenu = {"관리자 메뉴입니다.","메뉴를 선택 하세요","1. 상품 조회","2. 상품 등록","3. 상품 수정","4. 상품 삭제","5. 메인메뉴로 가기"};
+			for(int i=0; i<adminMenu.length; i++){
+				System.out.println(adminMenu[i]);
+			}
+
+			int selectedMain = keyboard.nextInt();
+			if(selectedMain == 1){
+
+				displayProductList(); // 상품조회
+
+			}else if(selectedMain == 2){
+
+				insertProductInProductList(); // 상품등록
+
+			}else if(selectedMain == 3){
+
+				updateProductList(); // 상품수정
+
+			}else if(selectedMain == 4){
+
+				deleteProductList(); // 상품삭제
+
+			}else if(selectedMain == 5){
+
+				start.start(); // 종료
+
+			} else {
+
+				System.out.println("메뉴를 다시 선택해주세요");
+
+			}
+		}
+
+	} // adminMenu() end
+
+
+
+	public void insertBasicProduct() { // 기본 상품 등록
+
+		// 1. newProduct에 기본 상품 인스턴스 생성
+		// 2. 생성된 인스턴스 products arrayList에 넣음
+		// 3. 상품 번호 입력
+		// 4. 상품 번호 증가시킴
+
+		Product newProduct = new Product("TV1",100000,"기본TV");
+		ShopRepository.products.add(newProduct);
+		newProduct.setNumber(ShopRepository.lastProductNumber + 1);
+		ShopRepository.lastProductNumber = ShopRepository.lastProductNumber + 1;
+
+		newProduct = new Product("폰1",200000,"기본Phone");	
+		ShopRepository.products.add(newProduct);
+		newProduct.setNumber(ShopRepository.lastProductNumber + 1);
+		ShopRepository.lastProductNumber = ShopRepository.lastProductNumber + 1;
+
+		newProduct = new Product("컴퓨터1",300000,"기본Computer");
+		ShopRepository.products.add(newProduct);
+		newProduct.setNumber(ShopRepository.lastProductNumber + 1);
+		ShopRepository.lastProductNumber = ShopRepository.lastProductNumber + 1;
+
+	} // insertBasicProduct() end
+
+
+
+	public void insertAdminUser() { // 관리자 계정 생성
+
+		// 관리자 아이디는 admin. 비밀번호는 1111, 이름은 관리자
+		User adminUser=new User("admin","1111","관리자");
+
+		// users arrayList에 넣음. users[0] 은 관리자임
+		ShopRepository.users.add(adminUser);
+
+		// users가 늘어났으므로 유저번호 1 증가
+		ShopRepository.lastUserNumber = ShopRepository.lastUserNumber + 1;
+
+	} // insertAdminUser() end
+
+
+
+	public void insertProductInProductList() { // 상품등록
+
+		System.out.println("등록할 상품 정보를 입력하세요.");
+
+		System.out.print("상품 이름 : ");
+		String name = keyboard.next();
+
+		System.out.print("상품 가격 : ");
+		int price = keyboard.nextInt();
+
+		System.out.print("상품 정보 : ");
+		String information = keyboard.next();
+
+		// 입력받은 상품이름, 상품가격, 상품정보를 담은 인스턴스 생성
+		Product newProduct = new Product(name, price, information);
+		newProduct.setNumber(ShopRepository.lastProductNumber + 1);
+
+		//ArrayList에 추가
+		ShopRepository.products.add(newProduct);
+
+		//다음에 등록되는 상품 번호의 자동 입력을 위해 ShopRepository.lastProductNumber 1 증가
+		ShopRepository.lastProductNumber = ShopRepository.lastProductNumber + 1;
+
+	} // insertProductInProductList() end
+
+
+
+	public void insertUserInUserList() { // 유저등록
+
+		String id = null;
+
+		while(true) {
+
+			System.out.println("등록할 사용자 정보를 입력하세요.");
+			System.out.print("사용자 ID : ");
+			id = keyboard.next();		
+
+			// 입력받은 아이디와 데이터베이스 속 아이디와 겹치는 것이 있는지 확인
+			boolean isFind = false;
+			for(int i=0; i<ShopRepository.users.size(); i++){
+				// 입력받은 아이디와 같은 아이디가 있다면
+				if(id.equals(ShopRepository.users.get(i).getId())){
+					isFind = true;
+					break;
+					
+				}			
+			}
+			
+			if(isFind){
+				System.err.println("이미 아이디가 존재합니다.");
+			} else {
+				break;
+			}
+			
+		}
+
+		System.out.print("사용자 PW : ");
+		String pw = keyboard.next();
+
+		System.out.print("사용자 이름 : ");
+		String name = keyboard.next();
+
+		User newUser = new User(id, pw, name);
+		newUser.setNumber(ShopRepository.lastUserNumber + 1);
+
+		// ArrayList 추가
+		ShopRepository.users.add(newUser);
+		// 유저 숫자 1 증가
+		ShopRepository.lastUserNumber = ShopRepository.lastUserNumber + 1;
+
+	} // insertUserInUserList() end
+
+
+
+	public void login() { // 로그인
+
+		boolean firstIsFind = false;
+		boolean secondIsFind = false;
+
+		while(!firstIsFind) {
+
+			System.out.println("로그인 정보를 입력하세요.");
+			System.out.print("사용자 ID : ");
+			String id = keyboard.next();				
+
+			for(int i = 0; i<ShopRepository.users.size(); i++){
+
+				if(id.equals(ShopRepository.users.get(i).getId())){
+
+					firstIsFind = true;
+					ShopRepository.loginUserNumber = i;
+					break;
+
+				}
+
+			}
+
+			System.out.print("사용자 PW : ");
+			String pw = keyboard.next();
+
+			// 관리자 정보는 users[0]에 있으므로 그 비밀번호와 비교
+			
+			if(ShopRepository.loginUserNumber == 0 && ShopRepository.users.get(0).getPw().equals(pw)){
+		
+				System.out.println("환영합니다! " + ShopRepository.users.get(0).getId() + "님");
+				adminMenu(); 
+				
+			}else if(ShopRepository.users.get(ShopRepository.loginUserNumber).getPw().equals(pw)){
+			
+				secondIsFind = true;
+				mainMenu();
+			}
+
+			if(!firstIsFind|!secondIsFind) {
+
+				System.err.println("아이디 또는 비밀번호가 맞지 않습니다.");
+
+			}
+
+			System.out.println("아무키나 다시 입력해주세요. 1번을 누르면 메뉴로 돌아갑니다.");
+			int selectedMenu = keyboard.nextInt();
+
+			// 1번을 누르면 처음 메뉴로 돌아감. 아무키나 다시 누르면 로그인 다시 시도
+			if(selectedMenu == 1) {
+
+				start.start();
+
+			} else {
+
+				login();
+
+			}
+		}
+
+	} // login() end
+
+
+
+	public void displayProductList() { // 등록된 상품 리스트 보여주기 
+
+		System.out.println("번호\t상품명\t가격\t정보");
+		for(int i = 0; i < ShopRepository.products.size() ; i++) {
+
+			System.out.print(ShopRepository.products.get(i).getNumber() + "\t");
+			System.out.print(ShopRepository.products.get(i).getName() + "\t");
+			System.out.print(ShopRepository.products.get(i).getPrice() + "\t");
+			System.out.println(ShopRepository.products.get(i).getInformation());
+
+		}
+
+	} // displayProductList() end
+
+
+
+	public void purchase() { // 상품구매하기
+
+		displayProductList();
+
+		boolean exit = false;
+		while(!exit) {
+
+			System.out.print("구매할 상품 번호 : ");
+			int number = keyboard.nextInt();
+
+			try{
+
+				if(ShopRepository.products.get(number) != null) {	
+					ShopRepository.carts.add(ShopRepository.products.get(number));
+				}
+
+			}catch(Exception e){
+
+				System.err.println("그런 상품이 없습니다");
+				break;
+
+			}
+
+			System.out.print("계속 하시겠습니까?(y/n)" );			
+			char isContinue = keyboard.next().charAt(0);
+
+			if(isContinue == 'n') {
+				exit = true;
+			}
+
+		}
+
+		displayCartList(); // 카트리스트로 이동
+
+	} // purchase() end
+
+
+
+	public void displayCartList() { // 카트리스트 출력
+
+		int sum = 0;
+
+		System.out.println("번호\t상품명\t가격\t정보");
+		for(int i = 0; i < ShopRepository.carts.size() ; i++) {
+
+			System.out.print(ShopRepository.carts.get(i).getNumber() + "\t");
+			System.out.print(ShopRepository.carts.get(i).getName() + "\t");
+			System.out.print(ShopRepository.carts.get(i).getPrice() + "\t");
+			System.out.println(ShopRepository.carts.get(i).getInformation());
+
+			sum = sum + ShopRepository.carts.get(i).getPrice();
+
+		}
+
+		System.out.println("합계 : " + sum);
+
+		if(sum == 0){
+			System.err.println("아무 상품이 없습니다. 메인메뉴로 돌아갑니다");
+			mainMenu();
+		}
+
+		updateCartList(); // 카트리스트 수정메서드 실행
+
+	} // displayCartList() end
+
+
+
+	public void updateCartList() { // 카트리스트 수정
+
+		while(true) {
+
+			System.out.println("카트리스트를 수정하시겠습니까? (y/n)");
+			char selectedMenu = keyboard.next().charAt(0);
+
+			if(selectedMenu == 'y') {
+
+				if(ShopRepository.carts.size()!=0) { // 카트가 비어있지 않다면
+
+					System.out.println("삭제할 상품 번호를 입력해주세요.");
+					int selectedCartListNum = keyboard.nextInt();
+
+					for(int i=0; i<ShopRepository.carts.size(); i++) {
+
+						if(selectedCartListNum == ShopRepository.carts.get(i).getNumber()) {
+
+							ShopRepository.carts.remove(i);
+							System.out.println("삭제되었습니다.");
+							break;
+
+						}
+
+					}
+
+				} else { // 카트가 비어있다면
+
+					System.err.println("카트리스트에 상품이 없습니다. 메인메뉴로 돌아갑니다.");
+					mainMenu();
+
+				}
+
+			}else if(selectedMenu == 'n') {
+
+				actionPayment();  // 결제메서드 실행
+				break;
+
+			}
+		}
+
+	} // updateCartList() end
+
+
+
+	public void actionPayment() { // 결제하기
+
+		while(true) {
+
+			System.out.println("결제 방식을 선택해주세요. (1)CASH (2)CARD (3)NAVER PAY");
+			int payTypeChoice=keyboard.nextInt();
+
+			if(payTypeChoice == 1) {
+
+				System.out.println("CASH로 결제되었습니다.");
+				System.out.println("이용해 주셔서 감사합니다.");
+				System.out.println();
+				break;
+
+			} else if(payTypeChoice == 2) {
+
+				System.out.println("CARD로 결제되었습니다.");
+				System.out.println("이용해 주셔서 감사합니다.");
+				System.out.println();
+				break;
+
+			} else if(payTypeChoice == 3) {
+
+				System.out.println("NAVER PAY로 결제되었습니다.");
+				System.out.println("이용해 주셔서 감사합니다.");
+				System.out.println();
+				break;
+
+			} else {
+
+				System.err.println("잘못입력하셨습니다. 다시 입력해주세요.");
+
+			}
+		}
+
+		// 카트 비우기
+		ShopRepository.carts = new ArrayList<Product>();
+
+	} // actionPayment() end
+
+
+
+	public void updateProductList() { // 상품수정
+
+		displayProductList(); // 상품리스트 보여주기
+
+		System.out.println("수정할 상품의 번호를 입력하세요.");
+		int selectedNum = keyboard.nextInt();
+
+		boolean exit = false;
+		while(!exit) {
+
+			for(int i=0; i<ShopRepository.products.size(); i++) {
+
+				if(selectedNum == ShopRepository.products.get(i).getNumber()) {
+
+					System.out.println("수정하고 싶은 메뉴를 입력하세요. (1)상품명 (2)상품가격 (3)상품정보 (4)나가기");
+					int selectedMenu = keyboard.nextInt();
+
+					switch(selectedMenu) {
+
+					case 1:
+
+						System.out.println("수정할 상품명을 입력해주세요.");
+						String updateProductName = keyboard.next();
+						ShopRepository.products.get(i).setName(updateProductName);
+						break;
+
+					case 2:
+
+						System.out.println("수정할 상품가격을 입력해주세요.");
+						int updateProductPrice = keyboard.nextInt();
+						ShopRepository.products.get(i).setPrice(updateProductPrice);
+						break;
+
+					case 3:
+
+						System.out.println("수정할 상품정보를 입력해주세요.");
+						String updateProductInformation = keyboard.next();
+						ShopRepository.products.get(i).setInformation(updateProductInformation);
+						break;
+
+					case 4: 
+
+						System.out.println("관리자메뉴로 돌아갑니다.");
+						exit = true;
+						adminMenu();
+						break;
+
+					default:
+						System.err.println("잘못입력하셨습니다. 다시 입력해주세요.");
+
+					}
+
+				}
+			}
+		}
+
+	} // updateProductList() end
+
+
+
+	public void deleteProductList() { // 상품삭제
+
+		displayProductList(); // 상품리스트 출력
+
+		boolean exit = false;
+		while(!exit) {
+
+			System.out.println("삭제할 상품의 번호를 입력하세요.");
+			int selectedNum = keyboard.nextInt();
+
+			for(int i=0; i<ShopRepository.products.size(); i++) {
+				if(selectedNum == ShopRepository.products.get(i).getNumber()) {
+					ShopRepository.products.remove(i);
+					System.out.println("삭제되었습니다.");
+				}
+			}
+
+			System.out.println("(1) 상품계속삭제 (2) 나가기");
+			int selectedMenu = keyboard.nextInt();
+
+			switch(selectedMenu) {
+
+			case 1:
+
+				break;
+
+			case 2:
+
+				System.out.println("관리자메뉴로 돌아갑니다.");
+				adminMenu();
+				break;
+
+			default:
+
+				System.err.println("잘못입력하셨습니다. 다시 입력해주세요.");
+
+			}
+		}
+
+	} // deleteProductList() end
+
+
+
+	public void updateUserInformation() { // 유저정보변경
+
+		checkUserInfo(); // 유저정보변경을 위한 재확인
+
+		boolean exit = false;
+		while(!exit) {
+			System.out.println("수정하고 싶은 메뉴를 입력하세요. (1) 이름 (2) 비밀번호 (3) 나가기");
+			int selectedMenu = keyboard.nextInt();
+
+			switch(selectedMenu) {
+
+			case 1: 
+
+				System.out.println("수정할 이름을 입력해주세요.");
+				String updateUserName = keyboard.next();
+				ShopRepository.users.get(ShopRepository.loginUserNumber).setName(updateUserName);
+				break;
+
+			case 2: 
+
+				System.out.println("수정할 비밀번호를 입력해주세요.");
+				String updateUserPw = keyboard.next();
+				ShopRepository.users.get(ShopRepository.loginUserNumber).setPw(updateUserPw);
+				break;
+
+			case 3: 
+
+				System.out.println("메뉴로 돌아갑니다.");
+				exit = true;
+				mainMenu();
+				break;
+
+			default:
+
+				System.err.println("잘못입력하셨습니다. 다시 입력해주세요.");
+
+			}
+
+		}
+
+	} // updateUserInformation() end
+
+
+
+	public void viewUserInformation() { // 유저정보확인하기
+
+		System.out.println("이름\tId");
+		System.out.print(ShopRepository.users.get(ShopRepository.loginUserNumber).getName() + "\t");
+		System.out.println(ShopRepository.users.get(ShopRepository.loginUserNumber).getId());
+
+	} // viewUserInformation() end
+
+
+
+	public void checkUserInfo() { // 정보변경을 위한 유저정보 재확인
+
+		String id = null;		
+		System.out.println("본인확인을 위해 다시 로그인 해주세요.");
+
+		boolean firstIsFind=false;
+		while(!firstIsFind) {
+
+			System.out.println("로그인 정보를 입력하세요.");
+			System.out.print("사용자 ID : ");
+			id = keyboard.next();				
+
+
+			if(id.equals(ShopRepository.users.get(ShopRepository.loginUserNumber).getId())){
+
+				firstIsFind = true;
+				break;
+
+			}else{
+
+				System.out.println("아이디가 맞지 않습니다.");
+
+			}
+		}
+
+		boolean secondIsFind = false;
+		while(!secondIsFind) {
+
+			System.out.print("사용자 PW : ");
+			String pw = keyboard.next();
+
+			if(pw.equals("q")){
+				mainMenu();
+			}
+
+			if(pw.equals(ShopRepository.users.get(ShopRepository.loginUserNumber).getPw())){
+
+				secondIsFind = true;
+				break;
+
+			}else{
+
+				System.out.println("비밀번호가 틀립니다");
+				System.out.println("나가시려면 [q]를 누르십시오");
+
+			}
+
+		}
+
+	} // checkUserInfo end()
+
+
+
+	public void withdrawMember() { // 회원탈퇴
+
+		boolean exit = false;
+		while(!exit) {
+
+			viewUserInformation();
+
+			System.out.println("정말 탈퇴하시겠습니까? (y/n)");
+			String selectedMenu=keyboard.next();
+
+			switch(selectedMenu) {
+
+			case "y":
+
+				ShopRepository.users.remove(ShopRepository.loginUserNumber);
+				System.out.println("탈퇴되었습니다. 시스템종료");
+				start.start();
+				break;
+
+			case "n": 
+
+				System.out.println("메뉴로 돌아갑니다.");
+				mainMenu();
+				break;	
+
+			default:
+
+				System.out.println("잘못입력하셨습니다. 다시 입력해주세요.");
+
+			}
+		}		
+	}
+
+} // withdrawMember() end

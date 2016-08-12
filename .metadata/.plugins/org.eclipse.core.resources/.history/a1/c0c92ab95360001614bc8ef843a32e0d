@@ -1,0 +1,9 @@
+
+public @interface test {
+
+}
+
+// package2
+//	A.CLASS
+// package2.test
+//  B.CLASS
