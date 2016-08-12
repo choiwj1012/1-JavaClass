@@ -10,7 +10,7 @@ public class Lotto {
 		boolean isFind = false;
 		int[] lottoNumber = new int[6];
 		
-		while( i < 6 ){
+		while(i<6){
 			
 			isFind = false;
 			
@@ -27,7 +27,7 @@ public class Lotto {
 				continue;
 			}
 			
-			System.out.print(lottoNumber[i] + "번  ");	
+			System.out.print(lottoNumber[i] + "번 \t");	
 			i++;
 
 		}

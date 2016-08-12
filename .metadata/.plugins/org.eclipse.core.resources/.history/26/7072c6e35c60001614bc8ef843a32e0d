@@ -10,7 +10,7 @@ public class Lotto {
 		boolean isFind = false;
 		int[] lottoNumber = new int[6];
 		
-		while( i < 6 ){
+		while(i<6){
 			
 			isFind = false;
 			
