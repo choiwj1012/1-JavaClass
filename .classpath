@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Board_1_stage/src"/>
+	<classpathentry kind="src" path="Board_2_stage/src"/>
+	<classpathentry kind="src" path="Board_3_stage/src"/>
+	<classpathentry kind="src" path="Board_4_stage/src"/>
+	<classpathentry kind="src" path="CarManaging/src"/>
+	<classpathentry kind="src" path="JavaStudy/src"/>
+	<classpathentry kind="src" path="Robot_4_stage/src"/>
+	<classpathentry kind="src" path="shoppingMall_hw/src"/>
+	<classpathentry kind="src" path="ShoppingMall/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Board_1_stage/bin"/>
+</classpath>
