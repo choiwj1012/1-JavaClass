@@ -1,4 +1,4 @@
-package java_20160813_lotto;
+package lotto;
 
 import java.util.ArrayList;
 
