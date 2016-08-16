@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;MVC_pattern/src&apos;&#x0D;&#x0A;- Original project: &apos;Board_4_stage&apos;&#x0D;&#x0A;- Destination element: &apos;MVC_pattern/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     board.ArticleProcess.java&#x0D;&#x0A;     board.Main.java&#x0D;&#x0A;     board.Article.java&#x0D;&#x0A;     board.ArticleRepository.java" description="Copy compilation units" destination="=MVC_pattern/src" element1="/src&lt;board{ArticleProcess.java" element2="/src&lt;board{Main.java" element3="/src&lt;board{Article.java" element4="/src&lt;board{ArticleRepository.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1471326016243" units="4" version="1.0"/>
+</session>

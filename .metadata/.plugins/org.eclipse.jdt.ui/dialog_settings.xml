@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="C:\Users\choi\Desktop" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="false" key="delegateUpdating"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="renameSubpackages"/>
@@ -50,6 +51,75 @@
 		<item value="600" key="width"/>
 		<item value="400" key="height"/>
 	</section>
+	<section name="javadoc">
+		<item value="-locale ko_KR -encoding UTF-8 -charset UTF-8 -docencoding UTF-8" key="vmparam"/>
+		<item value="private" key="access"/>
+		<item value="false" key="noindex"/>
+		<item value="C:\Users\choi\Desktop\github\Java\kgs_20160816_02\javadoc.xml" key="antpath"/>
+		<item value="false" key="nodeprecatedlist"/>
+		<item value="true" key="use"/>
+		<item value="true" key="author"/>
+		<item value="false" key="nodeprecated"/>
+		<item value="false" key="nonavbar"/>
+		<item value="" key="docletpath"/>
+		<item value="C:\Program Files\Java\jdk1.8.0_91\bin\javadoc.exe" key="javadoc_command_history"/>
+		<item value="1.8" key="source"/>
+		<item value="true" key="version"/>
+		<item value="aaa" key="doctitle"/>
+		<item value="" key="docletname"/>
+		<item value="true" key="splitindex"/>
+		<item value="true" key="fromStandard"/>
+		<item value="false" key="notree"/>
+		<item value="C:\Users\choi\Desktop" key="destdir"/>
+		<item value="false" key="openinbrowser"/>
+		<section name="projects">
+			<section name="JavaStudy">
+				<item value="C:\Users\choi\Desktop\github\Java\JavaStudy\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop\github\Java\JavaStudy\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="kgs_20160816_02">
+				<item value="C:\Users\choi\Desktop\github\Java\kgs_20160816_02\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="kgs_20160816_01">
+				<item value="C:\Users\choi\Desktop\kgs_20160812_10\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop\kgs_20160812_10\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Board_3_stage">
+				<item value="C:\Users\choi\Desktop\github\Java\Board_3_stage\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop\github\Java\Board_3_stage\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="shoppingMall_hw">
+				<item value="C:\Users\choi\Desktop\github\Java\kgs_20160816_02\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Board_4_stage">
+				<item value="C:\Users\choi\Desktop\github\Java\Board_4_stage\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop\github\Java\Board_4_stage\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Board_1_stage">
+				<item value="C:\Users\choi\Desktop\github\Java\Board_1_stage\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop\github\Java\Board_1_stage\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Board_2_stage">
+				<item value="C:\Users\choi\Desktop\github\Java\Board_2_stage\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop\github\Java\Board_2_stage\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Robot_4_stage">
+				<item value="C:\Users\choi\Desktop\github\Java\Robot_4_stage\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\choi\Desktop\github\Java\Robot_4_stage\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+		</section>
+	</section>
 	<section name="SourceActionDialog.methods">
 		<item value="false" key="SynchronizedModifier"/>
 		<item value="false" key="Comments"/>
@@ -61,11 +131,46 @@
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
+	</section>
+	<section name="JavadocWizardDialog">
+		<item value="616" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="566" key="DIALOG_HEIGHT"/>
+		<item value="660" key="DIALOG_X_ORIGIN"/>
+		<item value="151" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="AddGetterSetterDialog">
 		<item value="false" key="SortOrdering"/>
 		<item value="false" key="RemoveFinal"/>
+	</section>
+	<section name="JarPackageWizard">
+		<item value="false" key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES"/>
+		<item value="" key="JarManifestWizardPage.MANIFEST_LOCATION"/>
+		<item value="false" key="JarManifestWizardPage.SEAL_JAR"/>
+		<item value="true" key="JarPackageWizardPage.COMPRESS"/>
+		<item value="false" key="JarManifestWizardPage.REUSE_MANIFEST"/>
+		<item value="false" key="jarOptionsWizardPage.STORE_USE_SRC_FOLDERS"/>
+		<item value="true" key="jarOptionsWizardPage.EXPORT_WARNINGS"/>
+		<item value="" key="jarOptionsWizardPage.DESCRIPTION_LOCATION"/>
+		<item value="true" key="jarOptionsWizardPage.BUILD_IF_NEEDED"/>
+		<item value="false" key="JarPackageWizardPage.EXPORT_JAVA_FILES"/>
+		<item value="true" key="jarOptionsWizardPage.EXPORT_ERRORS"/>
+		<item value="true" key="JarManifestWizardPage.GENERATE_MANIFEST"/>
+		<item value="true" key="JarPackageWizardPage.EXPORT_CLASS_FILES"/>
+		<item value="false" key="JarPackageWizardPage.OVERWRITE"/>
+		<item value="false" key="jarOptionsWizardPage.SAVE_DESCRIPTION"/>
+		<item value="false" key="JarPackageWizardPage.REFACTORINGS"/>
+		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
+		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
+		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\choi\Desktop\repository.jar"/>
+			<item value="C:\Users\choi\Desktop\process.jar"/>
+			<item value="C:\Users\choi\Desktop\domain.jar"/>
+		</list>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>

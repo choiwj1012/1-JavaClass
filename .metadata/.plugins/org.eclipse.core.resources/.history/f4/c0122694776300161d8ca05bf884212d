@@ -1,0 +1,25 @@
+package mvc_Model;
+
+// CRUD (대상 : Memory -> ArrayList)
+public class ArticleModel {
+
+	// insert (Create)
+	public boolean insertIntoArrayList(Article article){
+		
+		boolean success = false;
+		
+		success = ArticleRepository.articles.add(article);
+		
+		return success;
+		
+	}
+	
+	
+	// list (Read All)
+	
+	// read (Read One)
+	
+	
+	
+	
+}
