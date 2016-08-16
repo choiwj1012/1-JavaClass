@@ -6,6 +6,9 @@ public class String_04 {
 		
 		String fullName = "Hello.java";
 		
+		fullName.replace("l","a");
+		System.out.println(fullName);
+		
 		// 문자열에서 .의 위치를 찾는다.
 		int index = fullName.indexOf('.');
 		System.out.println(index);
@@ -18,8 +21,6 @@ public class String_04 {
 		// fullName.substring(index + 1, fullName.length()); 의 결과와 같다.
 		String ext = fullName.substring(index + 1);
 		System.out.println(ext);
-		
-		
 		
 	}
 	

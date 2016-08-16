@@ -1,6 +1,4 @@
-package board;
-
-import java.util.Date;
+package kgs_20160812_10.domain;
 
 public class Article {
 
@@ -9,26 +7,11 @@ public class Article {
 	private String content; //null
 	private String writer; //null
 	private int readCount; //0
-	private Date date;
 	
-	public Article(){
-		
-	}
-	
-	public Article(String title, String content, String writer, Date date) {
+	public Article(String title, String content, String writer) {
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
-		this.date = date;
-	}
-
-	public Date setDate(Date date){
-		this.date = date;
-		return date;
-	}
-	
-	public Date getDate() {
-		return date;
 	}
 
 	public int getNumber() {

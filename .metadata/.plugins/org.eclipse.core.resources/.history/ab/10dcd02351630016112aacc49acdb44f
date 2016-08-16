@@ -1,0 +1,16 @@
+package kgs_20160816_01.repository;
+
+import java.util.ArrayList;
+
+import kgs_20160816_01.domain.Article;
+
+public class ArticleRepository {
+
+//	static final int MAX_ARTICLE_COUNT = 5;
+//	static Article[] articles = new Article[MAX_ARTICLE_COUNT];
+//	static int lastArticlePosition = 0;
+	
+	public static ArrayList<Article> articles = new ArrayList<Article>();
+	public static int lastArticleNumber = 0;
+	
+}

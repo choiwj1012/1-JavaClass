@@ -1,5 +1,8 @@
 package java_20160814_api;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class StringBuffer_02 {
 
 	public static void main(String[] args){
@@ -23,6 +26,11 @@ public class StringBuffer_02 {
 		System.out.println("capacity = " + sb1.capacity());
 		System.out.println("length = " + sb1.length());
 		
+		Date date = new Date();
+		System.out.println(date.getTime());
+		
+		SimpleDateFormat date2 = new SimpleDateFormat("H:mm:ss:SSS");
+		System.out.println(date2.format(new Date()));
 		
 	}
 	
