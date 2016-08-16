@@ -3,4 +3,6 @@
 <fullyQualifiedTypeName name="java_20160811.Product"/>
 <fullyQualifiedTypeName name="java_20160811.Main2"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="com.sun.management.jmx.Trace"/>
+<fullyQualifiedTypeName name="java.awt.Toolkit"/>
 </qualifiedTypeNameHistroy>
