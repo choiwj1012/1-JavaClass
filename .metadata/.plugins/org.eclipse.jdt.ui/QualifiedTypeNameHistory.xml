@@ -9,4 +9,5 @@
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="board.ArticleRepository"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="mvc_Model.ArticleModel"/>
 </qualifiedTypeNameHistroy>
