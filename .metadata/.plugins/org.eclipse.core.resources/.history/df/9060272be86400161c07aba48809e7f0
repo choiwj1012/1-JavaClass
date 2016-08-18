@@ -1,0 +1,14 @@
+package View;
+
+public class ArticleReadView {
+
+	public int getNumber(){
+		
+		int number = 0;
+		System.out.println("조회할 글번호 : ");
+		
+		return number;
+		
+	}
+	
+}

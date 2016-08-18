@@ -1,0 +1,15 @@
+package View;
+
+import java.util.ArrayList;
+
+import domain.Article;
+
+public class ArticleListView {
+
+	public void listArticle(ArrayList<Article> articles){
+		
+		System.out.println("번호\t제목\t작성자\t작성일\t조회수");
+		
+	}
+	
+}

@@ -1,0 +1,35 @@
+package View;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import domain.Article;
+
+public class ArticleListView {
+
+	private Scanner keyboard = new Scanner(System.in);
+	
+	public void listArticle(ArrayList<Article> articles){
+		
+		System.out.println("번호\t제목\t작성자\t작성일\t조회수");
+		
+		if(articles.size() == 0){
+			
+			System.out.println("등록된 글이 없습니다");
+			return;
+			
+		}
+		
+		for(int i=0; i<articles.size(); i++){
+			
+			System.out.print(articles.get(i).getNumber() + "\t");
+			System.out.print(articles.get(i).getTitle() + "\t");
+			System.out.print(articles.get(i).getWriter() + "\t");
+			System.out.print(articles.get(i).getWriteDate() + "\t");
+			System.out.println(articles.get(i).getReadCount() + "\t");
+			
+		}
+		
+	} // End of listArticle() end
+	
+}

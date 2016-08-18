@@ -1,0 +1,71 @@
+package View;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+import domain.Article;
+
+public class ArticleReadView {
+
+	// variable
+	private Scanner keyboard;
+	
+	// constructor
+	public ArticleReadView(){
+		
+		this.keyboard = new Scanner(System.in);
+		
+	}
+	
+	// method
+	public int getNumber(){
+		
+		int number = 0;
+		
+		System.out.println("조회할 글번호 : ");
+		number = keyboard.nextInt();
+		
+		return number;
+		
+	}
+	
+	public void printArticle(Article article){
+		
+		System.out.println("글번호 : " + article.getNumber());
+		System.out.println("글제목 : " + article.getTitle());
+		System.out.println("글내용 : " + article.getContent());
+		System.out.println("작성자 : " + article.getWriter());
+		
+		Date date = article.getWriteDate();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd H:mm:ss");
+		String dataStr = dateFormat.format(date);
+		
+		System.out.println("작성일 : " + dataStr);
+		System.out.println("조회수 : " + article.getReadCount());
+		
+		this.showMenu();
+	}
+	
+	public void showMenu(){
+		
+		System.out.println("[1. 글목록, 2. 글수정, 3. 글삭제]");
+		int selectedMenu = keyboard.nextInt();
+		
+		if(selectedMenu == 1){
+			
+			
+		} else if(selectedMenu == 2){
+			
+			
+		} else if(selectedMenu == 3){
+			
+			
+		} else {
+			
+			
+		}
+		
+	}
+	
+}

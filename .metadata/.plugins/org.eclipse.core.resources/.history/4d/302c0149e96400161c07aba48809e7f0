@@ -1,0 +1,29 @@
+package View;
+
+import java.util.Scanner;
+
+public class ArticleReadView {
+
+	// variable
+	private Scanner keyboard;
+	
+	// constructor
+	public ArticleReadView(){
+		
+		this.keyboard = new Scanner(System.in);
+		
+	}
+	
+	// method
+	public int getNumber(){
+		
+		int number = 0;
+		
+		System.out.println("조회할 글번호 : ");
+		number = keyboard.nextInt();
+		
+		return number;
+		
+	}
+	
+}
